@@ -13,7 +13,7 @@ async fn main() {
             // handle program logic here
             let (sink, mut stream) = connect_success.channel.split();
             sink.send_message("ping".into()).await.unwrap();
-            println!("Sent");
+            println!("ping");
 
             while let Some(message) = stream.next().await {
                 println!("{:?}", String::from_utf8_lossy(&message.into_buffer()))
